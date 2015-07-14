@@ -1,8 +1,8 @@
 (function($) { "use strict";
 
-	
-	//Home Sections fit screen	
-				
+
+	//Home Sections fit screen
+
 	$(function(){"use strict";
 		$('.contact-top, #cd-google-map').css({'height':($(window).height())+'px'});
 		$(window).resize(function(){
@@ -10,7 +10,7 @@
 		});
 	});
 
-	
+
 	//Home Scroll
 
 jQuery(document).ready(function($){
@@ -18,9 +18,9 @@ jQuery(document).ready(function($){
 	var	scaleSpeed = 0.3,
 	//change this value if you want to set a different initial opacity for the .cd-half-block
 		boxShadowOpacityInitialValue = 0.7,
-		animating = false; 
-	
-	//check the media query 
+		animating = false;
+
+	//check the media query
 	var MQ = window.getComputedStyle(document.querySelector('body'), '::before').getPropertyValue('content').replace(/"/g, "").replace(/'/g, "");
 	$(window).on('resize', function(){
 		MQ = window.getComputedStyle(document.querySelector('body'), '::before').getPropertyValue('content').replace(/"/g, "").replace(/'/g, "");
@@ -54,18 +54,18 @@ jQuery(document).ready(function($){
 			//if on desktop screen - animate sections
 			(!window.requestAnimationFrame) ? animateSection() : window.requestAnimationFrame(animateSection);
 		} else {
-			//on mobile - remove the style added by jQuery 
+			//on mobile - remove the style added by jQuery
 			$('.cd-section').find('.cd-block').removeAttr('style').find('.cd-half-block').removeAttr('style');
 		}
 		//update navigation arrows visibility
 		checkNavigation();
 	}
-	
+
 	function animateSection () {
 		var scrollTop = $(window).scrollTop(),
 			windowHeight = $(window).height(),
 			windowWidth = $(window).width();
-		
+
 		$('.cd-section').each(function(){
 			var actualBlock = $(this),
 				offset = scrollTop - actualBlock.offset().top,
@@ -96,9 +96,9 @@ jQuery(document).ready(function($){
 				//section not visible anymore
 				opacity = 0;
 			}
-			
+
 			boxShadowOpacity = parseInt(translate.replace('px', ''))*boxShadowOpacityInitialValue/20;
-			
+
 			//translate/scale section blocks
 			scaleBlock(actualBlock.find('.cd-block'), scale, opacity);
 
@@ -106,18 +106,18 @@ jQuery(document).ready(function($){
 			var directionSecondChild = ( actualBlock.is(':nth-of-type(even)') ) ? '+': '-';
 			if(actualBlock.find('.cd-half-block')) {
 				translateBlock(actualBlock.find('.cd-half-block').eq(0), directionFirstChild+translate, boxShadowOpacity);
-				translateBlock(actualBlock.find('.cd-half-block').eq(1), directionSecondChild+translate, boxShadowOpacity);	
+				translateBlock(actualBlock.find('.cd-half-block').eq(1), directionSecondChild+translate, boxShadowOpacity);
 			}
 			//this is used to navigate through the sections
-			( offset >= 0 && offset < windowHeight ) ? actualBlock.addClass('is-visible') : actualBlock.removeClass('is-visible');		
+			( offset >= 0 && offset < windowHeight ) ? actualBlock.addClass('is-visible') : actualBlock.removeClass('is-visible');
 		});
 	}
 
 	function translateBlock(elem, value, shadow) {
 		var position = Math.ceil(Math.abs(value.replace('px', '')));
-		
+
 		if( position >= $(window).width()/2 ) {
-			shadow = 0;	
+			shadow = 0;
 		} else if ( position > 20 ) {
 			shadow = boxShadowOpacityInitialValue;
 		}
@@ -170,15 +170,15 @@ jQuery(document).ready(function($){
         $('body,html').animate({'scrollTop': target.offset().top}, 500, function(){ animating = false; });
 	}
 });
-	
-	//Navigation	
+
+	//Navigation
 
 	$('ul.slimmenu').on('click',function(){
-	var width = $(window).width(); 
-	if ((width <= 1200)){ 
-		$(this).slideToggle(); 
-	}	
-	});				
+	var width = $(window).width();
+	if ((width <= 1200)){
+		$(this).slideToggle();
+	}
+	});
 	$('ul.slimmenu').slimmenu(
 	{
 		resizeWidth: '1200',
@@ -187,8 +187,8 @@ jQuery(document).ready(function($){
 		animSpeed:'medium',
 		indentChildren: true,
 		childrenIndenter: '&raquo;'
-	});	
-	
+	});
+
 	$(document).ready(function(){"use strict";
 		$(".scroll").click(function(event){
 
@@ -203,35 +203,35 @@ jQuery(document).ready(function($){
 			$('html, body').animate({scrollTop:target_top}, 1000);
 		});
 	});
-	
-	
+
+
 	//set your google maps parameters
 
 	jQuery(document).ready(function($){
 		
-		var latitude = 44.8013716,
-			longitude = 20.4631372,
+		var latitude = 37.42135,
+			longitude = -121.958456,
 			map_zoom = 15;
 
 		//google map custom marker icon - .png fallback for IE11
 		var is_internetExplorer11= navigator.userAgent.toLowerCase().indexOf('trident') > -1;
 		var marker_url = ( is_internetExplorer11 ) ? 'images/cd-icon-location.png' : 'images/cd-icon-location.svg';
-			
+
 		//define the basic color of your map, plus a value for saturation and brightness
 		var	main_color = '#cccccc',
 			saturation_value= -100,
 			brightness_value= 9;
 
 		//we define here the style of the map
-		var style= [ 
+		var style= [
 			{
 				//set saturation for the labels on the map
 				elementType: "labels",
 				stylers: [
 					{saturation: saturation_value}
 				]
-			},  
-			{	//poi stands for point of interest - don't show these lables on the map 
+			},
+			{	//poi stands for point of interest - don't show these lables on the map
 				featureType: "poi",
 				elementType: "labels",
 				stylers: [
@@ -245,22 +245,22 @@ jQuery(document).ready(function($){
 				stylers: [
 					{visibility: "off"}
 				]
-			}, 
-			{ 	
-				//don't show local road lables on the map
-				featureType: "road.local", 
-				elementType: "labels.icon", 
-				stylers: [
-					{visibility: "off"} 
-				] 
 			},
-			{ 
-				//don't show arterial road lables on the map
-				featureType: "road.arterial", 
-				elementType: "labels.icon", 
+			{
+				//don't show local road lables on the map
+				featureType: "road.local",
+				elementType: "labels.icon",
 				stylers: [
 					{visibility: "off"}
-				] 
+				]
+			},
+			{
+				//don't show arterial road lables on the map
+				featureType: "road.arterial",
+				elementType: "labels.icon",
+				stylers: [
+					{visibility: "off"}
+				]
 			},
 			{
 				//don't show road lables on the map
@@ -269,25 +269,25 @@ jQuery(document).ready(function($){
 				stylers: [
 					{visibility: "off"}
 				]
-			}, 
+			},
 			//style different elements on the map
-			{ 
-				featureType: "transit", 
-				elementType: "geometry.fill", 
+			{
+				featureType: "transit",
+				elementType: "geometry.fill",
 				stylers: [
 					{ hue: main_color },
-					{ visibility: "on" }, 
-					{ lightness: brightness_value }, 
+					{ visibility: "on" },
+					{ lightness: brightness_value },
 					{ saturation: saturation_value }
 				]
-			}, 
+			},
 			{
 				featureType: "poi",
 				elementType: "geometry.fill",
 				stylers: [
 					{ hue: main_color },
-					{ visibility: "on" }, 
-					{ lightness: brightness_value }, 
+					{ visibility: "on" },
+					{ lightness: brightness_value },
 					{ saturation: saturation_value }
 				]
 			},
@@ -296,8 +296,8 @@ jQuery(document).ready(function($){
 				elementType: "geometry.fill",
 				stylers: [
 					{ hue: main_color },
-					{ visibility: "on" }, 
-					{ lightness: brightness_value }, 
+					{ visibility: "on" },
+					{ lightness: brightness_value },
 					{ saturation: saturation_value }
 				]
 			},
@@ -306,8 +306,8 @@ jQuery(document).ready(function($){
 				elementType: "geometry.fill",
 				stylers: [
 					{ hue: main_color },
-					{ visibility: "on" }, 
-					{ lightness: brightness_value }, 
+					{ visibility: "on" },
+					{ lightness: brightness_value },
 					{ saturation: saturation_value }
 				]
 			},
@@ -316,8 +316,8 @@ jQuery(document).ready(function($){
 				elementType: "geometry.fill",
 				stylers: [
 					{ hue: main_color },
-					{ visibility: "on" }, 
-					{ lightness: brightness_value }, 
+					{ visibility: "on" },
+					{ lightness: brightness_value },
 					{ saturation: saturation_value }
 				]
 			},
@@ -326,8 +326,8 @@ jQuery(document).ready(function($){
 				elementType: "geometry.fill",
 				stylers: [
 					{ hue: main_color },
-					{ visibility: "on" }, 
-					{ lightness: brightness_value }, 
+					{ visibility: "on" },
+					{ lightness: brightness_value },
 					{ saturation: saturation_value }
 				]
 			},
@@ -336,8 +336,8 @@ jQuery(document).ready(function($){
 				elementType: "geometry.fill",
 				stylers: [
 					{ hue: main_color },
-					{ visibility: "on" }, 
-					{ lightness: brightness_value }, 
+					{ visibility: "on" },
+					{ lightness: brightness_value },
 					{ saturation: saturation_value }
 				]
 			},
@@ -346,8 +346,8 @@ jQuery(document).ready(function($){
 				elementType: "geometry.fill",
 				stylers: [
 					{ hue: main_color },
-					{ visibility: "on" }, 
-					{ lightness: brightness_value }, 
+					{ visibility: "on" },
+					{ lightness: brightness_value },
 					{ saturation: saturation_value }
 				]
 			},
@@ -355,19 +355,19 @@ jQuery(document).ready(function($){
 				featureType: "landscape",
 				stylers: [
 					{ hue: main_color },
-					{ visibility: "on" }, 
-					{ lightness: brightness_value }, 
+					{ visibility: "on" },
+					{ lightness: brightness_value },
 					{ saturation: saturation_value }
 				]
-				
+
 			},
 			{
 				featureType: "road",
 				elementType: "geometry.fill",
 				stylers: [
 					{ hue: main_color },
-					{ visibility: "on" }, 
-					{ lightness: brightness_value }, 
+					{ visibility: "on" },
+					{ lightness: brightness_value },
 					{ saturation: saturation_value }
 				]
 			},
@@ -376,23 +376,23 @@ jQuery(document).ready(function($){
 				elementType: "geometry.fill",
 				stylers: [
 					{ hue: main_color },
-					{ visibility: "on" }, 
-					{ lightness: brightness_value }, 
+					{ visibility: "on" },
+					{ lightness: brightness_value },
 					{ saturation: saturation_value }
 				]
-			}, 
+			},
 			{
 				featureType: "water",
 				elementType: "geometry",
 				stylers: [
 					{ hue: main_color },
-					{ visibility: "on" }, 
-					{ lightness: brightness_value }, 
+					{ visibility: "on" },
+					{ lightness: brightness_value },
 					{ saturation: saturation_value }
 				]
 			}
 		];
-			
+
 		//set google map options
 		var map_options = {
 			center: new google.maps.LatLng(latitude, longitude),
@@ -407,7 +407,7 @@ jQuery(document).ready(function($){
 		}
 		//inizialize the map
 		var map = new google.maps.Map(document.getElementById('google-container'), map_options);
-		//add a custom marker to the map				
+		//add a custom marker to the map
 		var marker = new google.maps.Marker({
 			position: new google.maps.LatLng(latitude, longitude),
 			map: map,
@@ -417,7 +417,7 @@ jQuery(document).ready(function($){
 
 		//add custom buttons for the zoom-in/zoom-out on the map
 		function CustomZoomControl(controlDiv, map) {
-			//grap the zoom elements from the DOM and insert them in the map 
+			//grap the zoom elements from the DOM and insert them in the map
 			var controlUIzoomIn= document.getElementById('cd-zoom-in'),
 				controlUIzoomOut= document.getElementById('cd-zoom-out');
 			controlDiv.appendChild(controlUIzoomIn);
@@ -441,39 +441,5 @@ jQuery(document).ready(function($){
 
 
 
-	
-  })(jQuery); 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
 
-
-
-
-
-	
+  })(jQuery);
