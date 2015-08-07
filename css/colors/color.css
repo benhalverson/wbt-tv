@@ -1,6 +1,5 @@
 
 
-
 ul.slimmenu li a.active-menu,
 .cd-half-block h2 span,
 .mb_YTVPBar,
@@ -22,10 +21,10 @@ ul.slimmenu li a.active-menu,
 .big-text-portfolio-top h2 span,
 #filter li .current,
 #filter li a:hover {
-	color:#F89406;
+color:#A32627;
 }
 ul.slimmenu li a:hover {
-    border-bottom:1px solid #F89406;
+    border-bottom:1px solid #A32627;
 }
 .cd-vertical-nav a:hover,
 a.scroll-down:hover,
@@ -46,48 +45,24 @@ a.scroll-down:hover,
 .portfolio-box-1 .line-mask,
 .owl-theme .owl-controls .owl-page.active span,
 .owl-theme .owl-controls.clickable .owl-page:hover span {
-	background-color:#F89406;
+	background-color:#A32627;
 }
 .cd-intro h1 span{
-    border-bottom:2px solid #F89406;
+    border-bottom:2px solid #A32627;
 }
 .footer-social a::before {
-	border: 2px solid #F89406;
+	border: 2px solid #A32627;
 }
-.big-text-top span{ 
-	border-left:3px solid #F89406;
-	border-right:3px solid #F89406;
+.big-text-top span{
+	border-left:3px solid #A32627;
+	border-right:3px solid #A32627;
 }
 .mb_YTVTime {
-	background: #F89406;
+	background: #A32627;
 }
 #ajax-form textarea:focus,
 #ajax-form input:focus,
 #ajax-form textarea:active,
-#ajax-form input:active {	
-	border-bottom:1px solid #F89406;
+#ajax-form input:active {
+	border-bottom:1px solid #A32627;
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
