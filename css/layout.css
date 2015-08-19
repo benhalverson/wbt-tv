@@ -66,7 +66,7 @@
 	width:86px;
 	height:16px;
 	top:32px;
-	background:url('../images/logo.png') no-repeat center center;
+	background:url('../images/wbt-logo-new.png') no-repeat center center;
 	background-size:86px 16px;
 	-webkit-transition : all 0.3s ease-out;
 	-moz-transition : all 0.3s ease-out;
@@ -114,7 +114,7 @@ ul.slimmenu li ul {
 	z-index:10000;
 	left:40px;
 	top:50px;
-	background:url('../images/logo.png') no-repeat center center;
+	background:url('../images/wbt-logo-new.png') no-repeat center center;
 	background-size:134px 25px;
 	-webkit-transition : all 0.3s ease-out;
 	-moz-transition : all 0.3s ease-out;
@@ -3013,7 +3013,7 @@ a.scroll-down.scroll-yt {
 	height:15px;
 	left:10px;
 	top:30px;
-	background:url('../images/logo.png') no-repeat center center;
+	background:url('../images/wbt-logo-new.png') no-repeat center center;
 	background-size:80px 15px;
 }
 .cbp-af-header.cbp-af-header-shrink .logo{
@@ -3021,7 +3021,7 @@ a.scroll-down.scroll-yt {
 	height:15px;
 	left:10px;
 	top:30px;
-	background:url('../images/logo.png') no-repeat center center;
+	background:url('../images/wbt-logo-new.png') no-repeat center center;
 	background-size:80px 15px;
 	-webkit-transition : all 0.5s ease-out;
 	-moz-transition : all 0.5s ease-out;
