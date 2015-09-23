@@ -109,13 +109,13 @@ ul.slimmenu li ul {
 
 .logo{
 	position:absolute;
-	width:134px;
-	height:50px;
+	width:165px;
+	height:59px;
 	z-index:10000;
 	left:40px;
 	top:30px;
 	background:url('../images/wbt-logo-new.png') no-repeat center center;
-	background-size:234px 50px;
+	background-size:305px 57px;
 	-webkit-transition : all 0.3s ease-out;
 	-moz-transition : all 0.3s ease-out;
 	-o-transition :all 0.3s ease-out;
@@ -3009,12 +3009,12 @@ a.scroll-down.scroll-yt {
 
 @media only screen and (max-width: 1200px) {
 .logo{
-	width:80px;
-	height:15px;
+	width:90px;
+	height:30px;
 	left:10px;
 	top:30px;
 	background:url('../images/wbt-logo-new.png') no-repeat center center;
-	background-size:80px 15px;
+	background-size:160px 30px;
 }
 .cbp-af-header.cbp-af-header-shrink .logo{
 	width:80px;
